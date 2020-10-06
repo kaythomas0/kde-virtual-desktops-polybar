@@ -19,7 +19,7 @@ moduleText=""
 desktopLabel=""
 for i in $(seq 1 $numberOfDesktops); do
     if [[ $i = $numberOfDesktops ]]; then
-        if [[ $i == $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
+        if [[ $i = $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
             checkForDesktopName
             moduleText+="%{F$accentColor}$desktopLabel%{F-}"
         else
