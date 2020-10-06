@@ -1,4 +1,7 @@
 # kwin-polybar-script
+kwin-polybar-script is a script meant to be used in a module for Polybar.
+It will automatically detect your KWin virtual desktops and highlight your
+active one, either by name or number.
 
 ## Example Polybar Configuration
 
