@@ -18,20 +18,17 @@ numberOfDesktops=$(wmctrl -d | wc -l)
 moduleText=""
 desktopLabel=""
 for i in $(seq 1 $numberOfDesktops); do
+    s=$separator
     if [[ $i = $numberOfDesktops ]]; then
-        if [[ $i = $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
-            checkForDesktopName
-            moduleText+="%{F$accentColor}$desktopLabel%{F-}"
-        else
-            checkForDesktopName
-            moduleText+=$desktopLabel
-        fi
-    elif [[ $i = $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
+        s=""
+    fi
+
+    if [[ $i = $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
         checkForDesktopName
-        moduleText+="%{F$accentColor}$desktopLabel%{F-} $separator "
+        moduleText+="%{F$accentColor}$desktopLabel%{F-} $s "
     else
         checkForDesktopName
-        moduleText+=$desktopLabel" $separator "
+        moduleText+=$desktopLabel" $s "
     fi
 done
 
