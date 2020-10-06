@@ -23,11 +23,10 @@ for i in $(seq 1 $numberOfDesktops); do
         s=""
     fi
 
+    checkForDesktopName
     if [[ $i = $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
-        checkForDesktopName
         moduleText+="%{F$accentColor}$desktopLabel%{F-} $s "
     else
-        checkForDesktopName
         moduleText+=$desktopLabel" $s "
     fi
 done
