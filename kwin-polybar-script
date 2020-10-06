@@ -1,0 +1,38 @@
+#!/bin/bash
+
+### Configuration
+accentColor="#ff79c6"
+separator="|"
+useDesktopNames=false
+###
+
+checkForDesktopName() {
+    if [[ $useDesktopNames = true ]]; then
+        desktopLabel=$(wmctrl -d | awk '{$1=$2=$3=$4=$5=$6=$7=$8=$9="";print}' | sed 's/^[[:space:]]*//' | sed -n -e ${i}p)
+    else
+        desktopLabel=$i
+    fi
+}
+
+numberOfDesktops=$(wmctrl -d | wc -l)
+moduleText=""
+desktopLabel=""
+for i in $(seq 1 $numberOfDesktops); do
+    if [[ $i = $numberOfDesktops ]]; then
+        if [[ $i == $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
+            checkForDesktopName
+            moduleText+="%{F$accentColor}$desktopLabel%{F-}"
+        else
+            checkForDesktopName
+            moduleText+=$desktopLabel
+        fi
+    elif [[ $i = $(qdbus org.kde.KWin /KWin currentDesktop) ]]; then
+        checkForDesktopName
+        moduleText+="%{F$accentColor}$desktopLabel%{F-} $separator "
+    else
+        checkForDesktopName
+        moduleText+=$desktopLabel" $separator "
+    fi
+done
+
+echo $moduleText
