@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ### Configuration
-accentColor="#ff79c6"
-separator="|"
-useDesktopNames=false
+accentColor="#ff79c6" # text color of active desktop
+separator="|"         # separator string in between desktop names or numbers
+useDesktopNames=false # set to true to use desktop names instead of numbers
 ###
 
 checkForDesktopName() {
