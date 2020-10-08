@@ -1,14 +1,14 @@
-# kwin-polybar-script
-kwin-polybar-script is a script meant to be used in a module for Polybar.
+# kde-virtual-desktops-polybar
+kde-virtual-desktops-polybar is a script meant to be used in a module for Polybar.
 It will automatically detect your KWin virtual desktops and highlight your
 active one, either by name or number.
 
 ## Example Polybar Configuration
 
 ```
-[module/kde-desktops]
+[module/kde-virtual-desktops]
 type = custom/script
-exec = ~/.config/polybar/scripts/kwin-polybar-script
+exec = ~/.config/polybar/scripts/kde-virtual-desktops-polybar
 interval = 0.1
 label = %output%
 ```
