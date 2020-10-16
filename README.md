@@ -17,7 +17,7 @@ type = custom/script
 exec = ~/.config/polybar/scripts/kde-virtual-desktops
 scroll-up = ~/.config/polybar/scripts/kde-previous-desktop
 scroll-down = ~/.config/polybar/scripts/kde-next-desktop
-interval = 0.1
+tail = true
 label = %output%
 ```
 
